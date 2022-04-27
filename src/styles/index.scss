@@ -1,0 +1,18 @@
+*, *::after, *::before{
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	vertical-align: baseline;
+	box-sizing: border-box;
+	overflow: hidden;
+	border: none;
+	scroll-behavior: smooth;
+	text-overflow: ellipsis;
+}
+:root {
+	font-size: 16px;
+}
+html, body {
+	width: 100vw;
+	height: 100vh;
+}
