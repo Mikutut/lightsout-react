@@ -1,0 +1,8 @@
+@import "Mixins.scss";
+
+#Timer {
+	@include center-text(row, nowrap);
+
+	font-size: 1.2rem;
+	color: white;
+}

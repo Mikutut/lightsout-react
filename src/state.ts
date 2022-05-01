@@ -22,6 +22,14 @@ const winConditionMetState = atom({
 	key: "winConditionMet",
 	default: false
 });
+const formattedTimerState = atom({
+	key: "formattedTime",
+	default: "00:00"
+});
+const gameRestartedState = atom({
+	key: "gameRestarted",
+	default: false
+});
 const lightsSelectedState = selector({
 	key: "lights",
 	get: ({get}) => {
@@ -43,5 +51,7 @@ export {
 	gridState,
 	gameStartedState,
 	winConditionMetState,
+	formattedTimerState,
+	gameRestartedState,
 	lightsSelectedState,
 };

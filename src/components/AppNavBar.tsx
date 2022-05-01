@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { gameStartedState, winConditionMetState } from "../state";
-import useResetGame from "../hooks/useResetGame";
+import { useLocation } from "react-router-dom";
+import useGoToPath from "../hooks/useGoToPath";
 
 import "../styles/AppNavBar.scss";
 
@@ -16,10 +14,7 @@ interface IAppNavBarBtn {
 
 function AppNavBar() {
 	const location = useLocation();
-	const navigate = useNavigate();
-	const gameStarted = useRecoilValue(gameStartedState);
-	const winConditionMet = useRecoilValue(winConditionMetState);
-	const resetGame = useResetGame();
+	const goToPath = useGoToPath();
 
 	useEffect(() => {
 		console.log(location);
@@ -37,17 +32,6 @@ function AppNavBar() {
 			path: "/about"
 		}
 	];
-
-	function goToPath(path: string) {
-		if(gameStarted || !winConditionMetState) {
-			const redirectConsent = window.confirm("The game is still in progress.\n\nAre you sure you want to leave it?\nAll your progress will be lost.");
-
-			if(redirectConsent) {
-				resetGame();
-				navigate(path);
-			}
-		} else navigate(path);
-	}
 
 	return (
 		<nav id="AppNavBar">

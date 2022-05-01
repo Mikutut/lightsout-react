@@ -1,1 +1,10 @@
 @import "Route.scss";
+@import "Mixins.scss";
+
+#HomeRoute {
+	justify-content: center;
+
+	& > button {
+		@include generic-button(5rem);
+	}
+}

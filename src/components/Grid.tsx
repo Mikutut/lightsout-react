@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useRecoilState, useSetRecoilState, useRecoilValue } from "recoil";
-import { gridState, winConditionMetState, gameStartedState } from "../state";
+import { gridState, winConditionMetState, gameStartedState, gameRestartedState } from "../state";
 import GridTile from "./GridTile";
 
 import "../styles/Grid.scss";
@@ -9,6 +9,7 @@ import "../styles/Grid.scss";
 function Grid() {
 	const [lightsRandomized, setLightsRandomized] = useState(false);
 	const gameStarted = useRecoilValue(gameStartedState);
+	const [gameRestarted, setGameRestarted] = useRecoilState(gameRestartedState);
 	const [ grid, setGrid ] = useRecoilState(gridState);
 	const setWinConditionMet = useSetRecoilState(winConditionMetState);
 	
@@ -38,7 +39,15 @@ function Grid() {
 		setLightsRandomized(true);
 	}, []);
 	useEffect(() => {
-		if(gameStarted && lightsRandomized) {
+		if(gameRestarted) {
+			setLightsRandomized(false);
+			randomiseLights();
+			setLightsRandomized(true);
+			setGameRestarted(false);
+		}
+	}, [gameRestarted])
+	useEffect(() => {
+		if(gameStarted && lightsRandomized && !gameRestarted) {
 			let count = 0;
 
 			grid.forEach(row => {

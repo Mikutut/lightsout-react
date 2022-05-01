@@ -1,20 +1,20 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useRecoilValue, useResetRecoilState } from "recoil";
+import { formattedTimerState } from "../state";
 
-function Timer({ time }: { time: number }) {
-	const formatTimer = () => {
-		const minutes = Math.floor(time / 60);
-		const remainingSeconds = time - (minutes * 60);
+import "../styles/Timer.scss";
 
-		return `${
-			(minutes > 9) ? minutes : `0${minutes}`
-		}:${
-			(remainingSeconds > 9) ? remainingSeconds : `0${remainingSeconds}`
-		}`;
-	}
+function Timer() {
+	const formattedTimer = useRecoilValue(formattedTimerState);
+	const resetFormattedTimer = useResetRecoilState(formattedTimerState);
+
+	useEffect(() => {
+		resetFormattedTimer();
+	}, []);
 
   return (
     <h3 id="Timer">
-			Timer: { formatTimer() }
+			Timer: { formattedTimer }
     </h3>
   );
 }

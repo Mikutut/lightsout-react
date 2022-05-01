@@ -1,17 +1,17 @@
 import { useResetRecoilState } from "recoil";
-import { clicksState, gridState, gameStartedState, winConditionMetState } from "../state";
+import { clicksState, gridState, winConditionMetState, formattedTimerState } from "../state";
 
 function useResetGame() {
 	const clicksReset = useResetRecoilState(clicksState);
 	const gridReset = useResetRecoilState(gridState);
-	const gameStartedReset = useResetRecoilState(gameStartedState);
 	const winConditionMetReset = useResetRecoilState(winConditionMetState);
+	const formattedTimerReset = useResetRecoilState(formattedTimerState);
 	
 	return () => {
 		clicksReset();
 		gridReset();
-		gameStartedReset();
 		winConditionMetReset();
+		formattedTimerReset();
 	}
 }
 

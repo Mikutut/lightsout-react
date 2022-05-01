@@ -1,1 +1,16 @@
+@import "Mixins.scss";
 @import "Route.scss";
+
+#PageNotFoundRoute {
+	justify-content: center;
+	
+	& > h1 {
+		@include center-text(row, nowrap);
+		color: white;
+		font-size: 4rem;
+		margin-bottom: 2rem;
+	}
+	& > button {
+		@include generic-button(2rem);
+	}
+}
