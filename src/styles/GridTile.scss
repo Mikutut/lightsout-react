@@ -1,0 +1,17 @@
+@import "ColorPalette.scss";
+
+.GridTile {
+	background: map-get($colorPalette, "gridTileInactive");
+	flex: 1 1 20%;
+	width: 100%;
+	height: 100%;
+	transition: background .2s;
+
+	&:hover {
+		background: map-get($colorPalette, "gridTileHover");
+		cursor: pointer;
+	}
+};
+.ActiveGridTile {
+	background: map-get($colorPalette, "gridTileActive");
+}

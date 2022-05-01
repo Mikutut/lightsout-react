@@ -1,0 +1,24 @@
+@import "Mixins.scss";
+
+#AppHeader {
+	grid-area: app-header;
+	width: 100%;
+	padding: 1rem;
+	margin: 0 0.5rem 0.5rem;
+	color: white;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	& > h1, & > h2 {
+		width: 100%;
+		@include center-text(row, nowrap);
+		padding: 0.5rem;
+	}
+	& > h1 {
+		font-size: 3rem;
+	}
+	& > h2 {
+		font-size: 1.5rem;
+	}
+}

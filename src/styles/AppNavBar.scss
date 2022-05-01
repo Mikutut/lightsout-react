@@ -1,0 +1,27 @@
+.AppNavBarBtn {
+	margin: 0.5rem;
+	font-size: 1.2rem;
+	padding: 0.25rem;
+	border: 1px solid white;
+	border-radius: 4px;
+	background: none;
+	color: white;
+	transition: background .2s, color .2s;
+
+	&:hover {
+		background: lightblue;
+		color: black;
+		cursor: pointer;
+	}
+}
+.AppNavBarCurrentRoute {
+	background: lightgreen;
+	color: black;
+}
+#AppNavBar {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}

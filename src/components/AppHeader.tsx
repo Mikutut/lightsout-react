@@ -1,12 +1,14 @@
 import React from "react";
-import Timer from "./Timer";
+
+import AppNavBar from "./AppNavBar";
+import "../styles/AppHeader.scss";
 
 function AppHeader() {
 	return (
 		<header id="AppHeader">
 			<h1>Lights Out</h1>
 			<h2>Make all the lights disappear!</h2>
-			<Timer />
+			<AppNavBar />
 		</header>
 	);
 }

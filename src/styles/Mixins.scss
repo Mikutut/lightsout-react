@@ -1,0 +1,8 @@
+@mixin center-text($direction, $wrapping) {
+	text-align: center;
+	display: flex;
+	flex-flow: $direction $wrapping;
+	justify-content: center;
+	align-content: center;
+	vertical-align: middle;
+}

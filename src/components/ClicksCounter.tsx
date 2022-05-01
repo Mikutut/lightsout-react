@@ -1,13 +1,13 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import clicksState from "../state/clicks";
+import { clicksState } from "../state";
 
 function ClicksCounter() {
 	const clicks = useRecoilValue(clicksState);
 
 	return (
 		<h3 id="ClicksCounter">
-			Lights changes: { clicks }
+			Clicks: { clicks }
 		</h3>
 	)
 }
