@@ -26,5 +26,6 @@ yarn-error.log*
 
 original/
 *.bak
+.env
 
 package-lock.json
